@@ -7,3 +7,5 @@ export const config = {
 		pathname: 'shared/database.json',
 	},
 }
+
+export type Config = typeof config;

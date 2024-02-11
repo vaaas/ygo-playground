@@ -12,7 +12,6 @@ export class Router {
 	route(req: IncomingMessage) {
 		const path = req.url ?? '/';
 		for (const route of this.routes) {
-			console.log(route.regex);
 			if (!route.match(path))
 				continue;
 			else if (!route.methods.has(req.method as any))

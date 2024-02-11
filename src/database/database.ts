@@ -7,10 +7,10 @@ export class Database {
 	private pathname: string;
 	private dirty: boolean;
 
-	constructor(
-		pathname: string,
-	) {
+	constructor(pathname: string) {
 		this.pathname = pathname;
+		this.dirty = false;
+		this.data = {};
 		if (existsSync(pathname)) {
 			this.data = JSON.parse(readFileSync(this.pathname).toString('utf-8'));
 		} else {

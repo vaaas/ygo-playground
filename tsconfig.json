@@ -3,9 +3,11 @@
 		"lib": ["ES2022"],
 		"module": "NodeNext",
 		"noEmit": true,
-		"allowImportingTsExtensions": true
+		"allowImportingTsExtensions": true,
+		"strict": true
 	},
 	"ts-node": {
-		"esm": true
+		"esm": true,
+		"transpileOnly": true
 	}
 }

@@ -1,5 +1,5 @@
+import type { Database } from './database.ts';
 import { enumerate } from '../util/iter.ts';
-import { Database } from './database.ts';
 
 export class Collection<T extends Record<string, any>> {
 	private database: Database;

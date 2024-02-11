@@ -1,11 +1,13 @@
 import { IncomingMessage } from 'http';
+import { HTTPResponse } from './http-response.ts';
 
 export type Method =
 	'GET'
 	| 'POST';
 
 export type AcceptableResponse =
-	Error
+	HTTPResponse
+	| Error
 	| number
 	| string
 	| Record<string, any>

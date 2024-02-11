@@ -1,13 +1,21 @@
 import { ServerResponse } from 'http';
 import { AcceptableResponse } from './route.ts';
 import { MIMETYPES } from '../mimetypes.ts';
+import { HTTPResponse } from './http-response.ts';
 
 export function serve(x: AcceptableResponse | Promise<AcceptableResponse>, res: ServerResponse): void {
 	function serve(x: AcceptableResponse): void {
 		if (x instanceof Error) {
-			const code = ('code' in x ? x.code : 500) as number;
-			res.writeHead(code, { 'content-type': MIMETYPES.text });
-			res.end(x.message);
+			if ('http_response' in x)
+				// @ts-ignore
+				x.http_response().serve(res);
+			else {
+				const code = ('code' in x ? x.code : 500) as number;
+				res.writeHead(code, { 'content-type': MIMETYPES.text });
+				res.end(x.message);
+			}
+		} else if (x instanceof HTTPResponse) {
+			x.serve(res);
 		} else if (typeof x === 'string') {
 			res.writeHead(200, { 'content-type': MIMETYPES.text });
 			res.end(x);
