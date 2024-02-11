@@ -1,7 +1,7 @@
-import { readFileSync } from 'fs';
+import { readFileSync } from 'node:fs';
 import { HTTPResponse } from '../http/http-response.ts';
 import { MIMETYPES } from '../mimetypes.ts';
-import { IncomingMessage } from 'http';
+import { IncomingMessage } from 'node:http';
 
 export class StaticController {
 	constructor() {}

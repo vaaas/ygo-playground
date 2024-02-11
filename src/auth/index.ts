@@ -1,4 +1,4 @@
-import { IncomingMessage } from 'http';
+import { IncomingMessage } from 'node:http';
 import { UserRepository } from '../data-access/users.ts';
 import { User } from '../entities/user.ts';
 import { BasicAuthorizationError } from './errors.ts';

@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse, createServer } from 'http';
+import { IncomingMessage, ServerResponse, createServer } from 'node:http';
 import { Router, serve } from './http/index.ts';
 import { config } from '../config.ts';
 import { App } from './app.ts';

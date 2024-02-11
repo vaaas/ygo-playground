@@ -1,5 +1,5 @@
-import { Buffer } from 'buffer';
-import { ServerResponse } from 'http';
+import { Buffer } from 'node:buffer';
+import { ServerResponse } from 'node:http';
 
 export class HTTPResponse {
 	private _status: number;

@@ -1,5 +1,5 @@
-import { IncomingMessage } from 'http';
-import { Buffer } from 'buffer';
+import { IncomingMessage } from 'node:http';
+import { Buffer } from 'node:buffer';
 
 export function read_post_data(req: IncomingMessage): Promise<Buffer> {
 	return new Promise((yes, no) => {

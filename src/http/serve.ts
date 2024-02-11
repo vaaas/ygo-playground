@@ -1,4 +1,4 @@
-import { ServerResponse } from 'http';
+import { ServerResponse } from 'node:http';
 import { AcceptableResponse } from './route.ts';
 import { MIMETYPES } from '../mimetypes.ts';
 import { HTTPResponse } from './http-response.ts';

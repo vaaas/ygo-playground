@@ -1,4 +1,4 @@
-import { IncomingMessage } from 'http';
+import { IncomingMessage } from 'node:http';
 import { MethodNotAllowed, NotFound } from './errors.ts';
 import { Handler, Method, Route } from './route.ts';
 
