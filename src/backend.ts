@@ -2,16 +2,13 @@ import { IncomingMessage, ServerResponse, createServer } from 'http';
 import { Router, serve } from './http/index.ts';
 import { config } from '../config.ts';
 import { App } from './app.ts';
-import { compose } from './util/function.ts';
 
 function main() {
 	const app = new App(config);
 	const router = new Router();
 
-	router.get('/', compose(
-		(req) => app.auth.demand_basic_authentication(req),
-		() => 'hello, world!'
-	));
+	router.get('/', () => app.controllers.static.index());
+	router.get('/**', (req) => app.controllers.static.file(req));
 
 	function on_request(req: IncomingMessage, res: ServerResponse) {
 		try {

@@ -10,8 +10,7 @@ export function serve(x: AcceptableResponse | Promise<AcceptableResponse>, res: 
 				// @ts-ignore
 				x.http_response().serve(res);
 			else {
-				const code = ('code' in x ? x.code : 500) as number;
-				res.writeHead(code, { 'content-type': MIMETYPES.text });
+				res.writeHead(500, { 'content-type': MIMETYPES.text });
 				res.end(x.message);
 			}
 		} else if (x instanceof HTTPResponse) {

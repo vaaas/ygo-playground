@@ -45,6 +45,7 @@ export class Router {
 		const replaced =
 			path
 				.replaceAll('/', '\\/')
+				.replaceAll('**', '.+')
 				.replaceAll('*', '([^/]+)');
 		return `^${replaced}$`;
 	}

@@ -1,10 +1,12 @@
 {
 	"compilerOptions": {
-		"lib": ["ES2022"],
+		"lib": ["ES2022", "dom"],
 		"module": "NodeNext",
 		"noEmit": true,
 		"allowImportingTsExtensions": true,
-		"strict": true
+		"strict": true,
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js"
 	},
 	"ts-node": {
 		"esm": true,
