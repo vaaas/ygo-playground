@@ -3,7 +3,7 @@ import { Card } from './card.ts';
 export class Deck {
 	public id: number;
 	public name: string;
-	public cards: Array<Card>;
+	public cards: Array<Card['id']>;
 
 	constructor(
 		id: Deck['id'],

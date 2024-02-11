@@ -7,7 +7,12 @@ function main() {
 	router.get('/', () => 'hello, world!');
 
 	function on_request(req: IncomingMessage, res: ServerResponse) {
-		serve(router.route(req), res);
+		try {
+			serve(router.route(req), res);
+		} catch(e) {
+			console.error(e);
+			serve(e, res);
+		}
 	}
 
 	createServer(on_request)

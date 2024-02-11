@@ -1,6 +1,6 @@
-import { existsSync, readFileSync, writeFileSync } from 'fs';
-import { minutes } from '../util/time';
-import { Collection } from './collection';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { minutes } from '../util/time.ts';
+import { Collection } from './collection.ts';
 
 export class Database {
 	private data: Record<string, Array<any>>;

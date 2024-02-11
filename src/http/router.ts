@@ -11,7 +11,6 @@ export class Router {
 
 	route(req: IncomingMessage) {
 		const path = req.url ?? '/';
-		console.log(path);
 		for (const route of this.routes) {
 			console.log(route.regex);
 			if (!route.match(path))
