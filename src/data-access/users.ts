@@ -1,5 +1,6 @@
-import { Collection, Database } from 'ygo-playground/database';
-import { User, UserEntry } from 'ygo-playground/entities';
+import { Collection } from '../database/collection.ts';
+import { Database } from '../database/database.ts';
+import { User, UserEntry } from '../entities/user.ts';
 
 export class UserRepository {
 	private collection: Collection<UserEntry>;

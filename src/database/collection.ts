@@ -1,5 +1,5 @@
+import { enumerate } from '../util/iter.ts';
 import type { Database } from './database.ts';
-import { enumerate } from 'ygo-playground/util';
 
 export class Collection<T extends Record<string, any>> {
 	private database: Database;

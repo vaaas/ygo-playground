@@ -1,7 +1,7 @@
 export { CardRepository } from './cards.ts';
 export { UserRepository } from './users.ts';
 
-import { Database } from 'ygo-playground/database';
+import { Database } from '../database/database.ts';
 import { CardRepository } from './cards.ts';
 import { UserRepository } from './users.ts';
 

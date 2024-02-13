@@ -1,8 +1,8 @@
 import { DataAccess } from './data-access/index.ts';
 import { AuthService } from './auth/index.ts';
 import { Database } from './database/database.ts';
-import { Config } from 'ygo-playground/config';
 import { Controllers } from './controllers/index.ts';
+import { Config } from '../config.ts';
 
 export class App {
 	public db: Database;

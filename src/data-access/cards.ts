@@ -1,5 +1,6 @@
-import { Collection, Database } from 'ygo-playground/database';
-import { Card, CardEntry } from 'ygo-playground/entities';
+import { Collection } from '../database/collection.ts';
+import { Database } from '../database/database.ts';
+import { Card, CardEntry } from '../entities/card.ts';
 
 export class CardRepository {
 	private collection: Collection<CardEntry>;

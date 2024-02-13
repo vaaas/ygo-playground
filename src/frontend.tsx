@@ -1,3 +1,15 @@
 import { render } from 'solid-js/web';
+import { RouterProvider, useRouter } from './solid-router/index.tsx';
 
-render(() => <div>Hello, world!</div>, document.body);
+function App() {
+	const route = useRouter();
+	return route() ?? 'Hello, world!!!';
+}
+
+render(
+	() => <RouterProvider>
+		<App/>
+	</RouterProvider>,
+
+	document.body
+);
