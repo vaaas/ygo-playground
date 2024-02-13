@@ -1,4 +1,5 @@
 import { BoosterPack } from '../entities/booster-pack.ts';
+import { bold } from '../utility-css.ts';
 
 export function BoosterPackPreview(props: { item: BoosterPack }) {
 	return <article>
@@ -7,7 +8,7 @@ export function BoosterPackPreview(props: { item: BoosterPack }) {
 		</div>
 
 		<div>
-			<header>{props.item.name}</header>
+			<header class={bold}>{props.item.name}</header>
 			<div>{props.item.cards.length} cards</div>
 		</div>
 	</article>

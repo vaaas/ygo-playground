@@ -1,3 +1,5 @@
+import { Rules } from './types.ts';
+
 export class Rule {
 	private selector: string;
 	private rules: Rules;
