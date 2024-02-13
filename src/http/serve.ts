@@ -1,6 +1,6 @@
 import { ServerResponse } from 'node:http';
+import { MIMETYPES } from 'ygo-playground/mimetypes';
 import { AcceptableResponse } from './route.ts';
-import { MIMETYPES } from '../mimetypes.ts';
 import { HTTPResponse } from './http-response.ts';
 
 export function serve(x: AcceptableResponse | Promise<AcceptableResponse>, res: ServerResponse): void {

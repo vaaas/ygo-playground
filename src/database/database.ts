@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { minutes } from '../util/time.ts';
+import { minutes } from 'ygo-playground/util';
 import { Collection } from './collection.ts';
 
 export class Database {

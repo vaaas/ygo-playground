@@ -1,4 +1,4 @@
-import { HTTPResponse } from '../http/http-response.ts';
+import { HTTPResponse } from 'ygo-playground/http';
 
 export class BasicAuthorizationError extends Error {
 	code: number;

@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
-import { HTTPResponse } from '../http/http-response.ts';
-import { MIMETYPES } from '../mimetypes.ts';
+import { HTTPResponse } from 'ygo-playground/http';
+import { MIMETYPES } from 'ygo-playground/mimetypes';
 import { IncomingMessage } from 'node:http';
 
 export class StaticController {

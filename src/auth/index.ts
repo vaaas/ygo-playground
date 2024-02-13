@@ -1,6 +1,6 @@
 import { IncomingMessage } from 'node:http';
-import { UserRepository } from '../data-access/users.ts';
-import { User } from '../entities/user.ts';
+import { UserRepository } from 'ygo-playground/data-access';
+import { User } from 'ygo-playground/entities';
 import { BasicAuthorizationError } from './errors.ts';
 
 export type Authenticated<T extends IncomingMessage> = T & { user: User }

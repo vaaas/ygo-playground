@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse, createServer } from 'node:http';
 import { Router, serve } from './http/index.ts';
-import { config } from '../config.ts';
+import { config } from 'ygo-playground/config';
 import { App } from './app.ts';
 
 function main() {
