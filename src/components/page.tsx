@@ -1,6 +1,8 @@
 import { JSXElement } from 'solid-js';
 import { style } from '../css-in-js/index.ts';
-import { center, colors, gaps } from '../utility-css.ts';
+import { center, colors } from '../utility-css.ts';
+import { gap_to_rem } from './types.ts';
+import { Text } from './text.tsx';
 
 export const pageStyle = style({
 	'max-width': '50rem',
@@ -14,9 +16,8 @@ export function Page(props: { children: JSXElement | JSXElement[] }) {
 }
 
 export const headerStyle = style({
-	'font-size': '2rem',
 	'border-bottom': `1px solid ${colors.dark5}`,
-	'margin-bottom': gaps.wider,
+	'margin-bottom': gap_to_rem('wider'),
 });
 
 export function PageHeader(props: { children: JSXElement | JSXElement[] }) {
@@ -24,6 +25,6 @@ export function PageHeader(props: { children: JSXElement | JSXElement[] }) {
 		[headerStyle]: true,
 		[center]: true,
 	}}>
-		{props.children}
+		<Text size='huge'>{props.children}</Text>
 	</header>
 }

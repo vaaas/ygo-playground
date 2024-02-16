@@ -1,13 +1,11 @@
 import { Button } from '../components/button.tsx';
+import { EmptyContents } from '../components/empty-contents.tsx';
 import { Page, PageHeader } from '../components/page.tsx';
 import { BoosterPack } from '../entities/booster-pack.ts';
 import { BoosterPackList } from './booster-pack-list.tsx';
 
 export function BoosterPackManagement() {
-	const items: BoosterPack[] = [
-		new BoosterPack(1, 'First booster pack', 'http://google.com', [1,2,3]),
-		new BoosterPack(1, 'Second booster pack', 'http://google.com', [1,2,3]),
-	];
+	const items: BoosterPack[] = [];
 	return <Page>
 		<PageHeader>Manage booster packs</PageHeader>
 
@@ -15,6 +13,13 @@ export function BoosterPackManagement() {
 			<Button>Add</Button>
 		</header>
 
-		<BoosterPackList items={items}/>
+		{
+			items.length > 0
+				? <BoosterPackList items={items}/>
+				: <EmptyContents>
+					No booster packs configured yet
+				</EmptyContents>
+		}
+
 	</Page>
 }

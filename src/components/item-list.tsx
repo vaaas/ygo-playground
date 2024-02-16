@@ -1,17 +1,14 @@
 import { JSXElement } from 'solid-js';
-import { colors, flex, flex_gap_normal, flex_vertically, pad_narrower, rounded } from '../utility-css.ts';
+import { colors, pad_narrower, rounded } from '../utility-css.ts';
 import { style } from '../css-in-js/index.ts';
 import { lift_single } from '../util/array.ts';
+import { Flex } from './flex.tsx';
 
 
 export function ItemList(props: { children: JSXElement | JSXElement[] }) {
-	return <div classList={{
-		[flex]: true,
-		[flex_gap_normal]: true,
-		[flex_vertically]: true,
-	}}>
+	return <Flex direction='vertical'>
 		{lift_single(props.children).map(Item)}
-	</div>
+	</Flex>
 }
 
 const childStyle = style({

@@ -1,3 +1,4 @@
+import { gap_to_rem } from './components/types.ts';
 import { style } from './css-in-js/index.ts'
 
 export const colors = {
@@ -48,23 +49,9 @@ export const colors = {
 	dark5: '#000000',
 }
 
-export const gaps = {
-	extra_narrow: '0.25rem',
-	narrower: '0.5rem',
-	narrow: '0.75rem',
-	normal:  '1rem',
-	wide: '1.25rem',
-	wider: '1.5rem',
-	extra_wide: '2rem',
-};
-
 export const full_height = style({ 'min-height': '100dvh' });
-export const flex = style({ 'display': 'flex' });
-export const flex_gap_normal = style({ 'gap': gaps.normal });
-export const flex_vertically = style({ 'flex-direction': 'column' });
-export const rounded = style({'border-radius': gaps.extra_narrow});
-export const pad_narrower = style({'padding': gaps.narrower});
-export const bold = style({'font-weight': 'bold'});
-export const pointer = style({'cursor': 'pointer'});
+export const rounded = style({'border-radius': gap_to_rem('extra-narrow') });
+export const pad_narrower = style({'padding': gap_to_rem('narrower') });
 export const center = style({'text-align': 'center'});
-export const justify_center = style({'justify-content': 'center'});
+export const pointer = style({'cursor': 'pointer'});
+export const no_select = style({'user-select': 'none'});

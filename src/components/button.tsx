@@ -1,11 +1,12 @@
 import { JSXElement } from 'solid-js';
 import { style } from '../css-in-js/index.ts'
-import { colors, gaps, pointer, rounded } from '../utility-css.ts'
+import { colors, pointer, rounded } from '../utility-css.ts'
+import { gap_to_rem } from './types.ts';
 
 const buttonStyle = style({
 	'font-size': '1rem',
 	'color': colors.dark5,
-	'padding': `${gaps.extra_narrow} ${gaps.narrow}`,
+	'padding': `${gap_to_rem('extra-narrow')} ${gap_to_rem('narrow')}`,
 	'min-width': '5rem',
 });
 

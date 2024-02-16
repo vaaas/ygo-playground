@@ -1,5 +1,5 @@
+import { Text } from '../components/text.tsx';
 import { BoosterPack } from '../entities/booster-pack.ts';
-import { bold } from '../utility-css.ts';
 
 export function BoosterPackPreview(props: { item: BoosterPack }) {
 	return <article>
@@ -8,7 +8,7 @@ export function BoosterPackPreview(props: { item: BoosterPack }) {
 		</div>
 
 		<div>
-			<header class={bold}>{props.item.name}</header>
+			<Text as='header' weight='bold'>{props.item.name}</Text>
 			<div>{props.item.cards.length} cards</div>
 		</div>
 	</article>

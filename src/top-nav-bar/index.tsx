@@ -1,12 +1,8 @@
-import { center, flex, flex_gap_normal, justify_center } from '../utility-css.ts';
+import { Flex } from '../components/flex.tsx';
 
 export function TopNavBar() {
-	return <nav classList={{
-		[flex]: true,
-		[flex_gap_normal]: true,
-		[justify_center]: true,
-	}}>
+	return <Flex as='nav' justify='center'>
 		<a href='#'>Home</a>
 		<a href='#'>Manage packs</a>
-	</nav>
+	</Flex>
 }
