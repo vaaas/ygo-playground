@@ -51,7 +51,18 @@ export const colors = {
 
 export const full_height = style({ 'min-height': '100dvh' });
 export const rounded = style({'border-radius': gap_to_rem('extra-narrow') });
+export const rounded_more = style({'border-radius': gap_to_rem('normal') });
 export const pad_narrower = style({'padding': gap_to_rem('narrower') });
 export const center = style({'text-align': 'center'});
+export const right = style({'text-align': 'right'});
 export const pointer = style({'cursor': 'pointer'});
+export const not_allowed = style({'cursor': 'not-allowed'});
 export const no_select = style({'user-select': 'none'});
+export const block = style({display: 'block'});
+export const inline_block = style({display: 'inline-block'});
+export const hidden = style({display: 'none'});
+export const invisible_input = style({
+	opacity: '0',
+	width: '0px',
+	height: '0px',
+});

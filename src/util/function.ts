@@ -86,3 +86,7 @@ export function compose(...fs: Array<Unary<any, any>>): (x: any) => any {
 		return a
 	}
 }
+
+export function do_nothing() {
+	return undefined;
+}
