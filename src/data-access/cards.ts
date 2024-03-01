@@ -1,4 +1,4 @@
-import { Database } from '@vaaas/fs-kv-db';
+import { Database } from '../database.ts';
 import { Card } from '../entities/index.ts';
 
 export class CardRepository {
@@ -6,6 +6,10 @@ export class CardRepository {
 
 	constructor(db: Database) {
 		this.db = db;
+	}
+
+	static dependencies() {
+		return [Database] as const;
 	}
 
 	store(x: Card): void {

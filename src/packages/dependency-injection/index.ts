@@ -1,6 +1,6 @@
 export interface Injectable {
 	new (...xs: any[]): any;
-	dependencies?: () => any[];
+	dependencies?: () => Array<any> | ReadonlyArray<any>;
 }
 
 export class DIContainer {

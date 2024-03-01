@@ -12,31 +12,32 @@ export interface Deserialiseable {
 	deserialise(x: Serialised): any;
 }
 
-export type ISerialiser = ReturnType<typeof Serialiser>;
+export class Serialiser {
+	private deserialisers: Record<Deserialiseable['type'], Deserialiseable['deserialise']>;
 
-export function Serialiser(...xs: Array<Deserialiseable>) {
-	const deserialisers = xs.reduce((xs, x) => {
-		xs[x.type] = x.deserialise;
-		return xs;
-	}, {} as Record<Deserialiseable['type'], Deserialiseable['deserialise']>);
+	constructor(...xs: Array<Deserialiseable>) {
+		this.deserialisers = xs.reduce((xs, x) => {
+			xs[x.type] = x.deserialise;
+			return xs;
+		}, {} as Serialiser['deserialisers']);
+	}
 
-	function stringify(x: Serialised): string {
+
+	private stringify(x: Serialised): string {
 		return JSON.stringify(x);
 	}
 
-	function parse(x: string): Serialised {
+	private parse(x: string): Serialised {
 		return JSON.parse(x);
 	}
 
-	function serialise(x: Serialiseable): string {
-		return stringify(x.serialise());
+	serialise(x: Serialiseable): string {
+		return this.stringify(x.serialise());
 	}
 
-	function deserialise(x: string): unknown {
-		const parsed = parse(x);
-		const deserialiser = deserialisers[parsed._type];
+	deserialise(x: string): unknown {
+		const parsed = this.parse(x);
+		const deserialiser = this.deserialisers[parsed._type];
 		return deserialiser(parsed);
 	}
-
-	return { serialise, deserialise };
 }

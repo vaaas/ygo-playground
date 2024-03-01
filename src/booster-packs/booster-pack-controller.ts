@@ -3,8 +3,8 @@ import { BoosterPackRepository } from '../data-access/booster-packs.ts';
 import { read_post_data_as_json } from '../http/post-data.ts';
 import { create_request_validator, patch_request_validator } from './validators.ts';
 import { BoosterPack } from '../entities/booster-pack.ts';
-import { Database } from '@vaaas/fs-kv-db';
 import { NotFound } from '../http/errors.ts';
+import { Database } from '../database.ts';
 
 export class BoosterPackController {
 	private repo: BoosterPackRepository;
@@ -16,6 +16,13 @@ export class BoosterPackController {
 	) {
 		this.repo = repo;
 		this.db = db;
+	}
+
+	static dependencies() {
+		return [
+			BoosterPackRepository,
+			Database
+		] as const;
 	}
 
 	async create(req: IncomingMessage) {

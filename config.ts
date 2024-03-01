@@ -4,7 +4,7 @@ export const config = {
 	},
 
 	db: {
-		pathname: 'shared/database.json',
+		pathname: 'shared',
 	},
 }
 

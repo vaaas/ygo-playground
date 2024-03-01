@@ -1,4 +1,4 @@
-import { Database } from '@vaaas/fs-kv-db';
+import { Database } from '../database.ts';
 import { User } from '../entities/index.ts';
 import { find } from '../util/iter.ts';
 
@@ -7,6 +7,10 @@ export class UserRepository {
 
 	constructor(db: Database) {
 		this.db = db;
+	}
+
+	static dependencies() {
+		return [Database] as const;
 	}
 
 	authenticate(name: string, password: string): User | undefined {

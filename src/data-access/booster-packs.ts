@@ -1,4 +1,4 @@
-import { Database } from '@vaaas/fs-kv-db';
+import { Database } from '../database.ts';
 import { BoosterPack } from '../entities/index.ts';
 
 export class BoosterPackRepository {
@@ -6,6 +6,10 @@ export class BoosterPackRepository {
 
 	constructor(db: Database) {
 		this.db = db;
+	}
+
+	static dependencies() {
+		return [Database] as const;
 	}
 
 	store(x: BoosterPack): void {
