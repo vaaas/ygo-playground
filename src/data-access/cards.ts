@@ -1,29 +1,22 @@
-import { Collection } from '../database/collection.ts';
-import { Database } from '../database/database.ts';
-import { Card, CardEntry } from '../entities/card.ts';
+import { Database } from '@vaaas/fs-kv-db';
+import { Card } from '../entities/index.ts';
 
 export class CardRepository {
-	private collection: Collection<CardEntry>;
+	private db: Database;
 
 	constructor(db: Database) {
-		this.collection = db.collection('cards');
+		this.db = db;
 	}
 
 	store(x: Card): void {
-		this.collection.add(x.toJSON());
+		this.db.write(x.id, x);
 	}
 
 	delete(x: Card): void {
-		const entry = this.collection.find(y => x.id === y.id);
-		if (entry)
-			this.collection.delete(entry);
+		this.db.delete(x.id);
 	}
 
 	get(x: Card['id']): Card | undefined {
-		const entry = this.collection.find(y => y.id === x);
-		if (entry)
-			return Card.fromJSON(entry);
-		else
-			return undefined;
+		return this.db.read<Card>(x);
 	}
 }

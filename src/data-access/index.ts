@@ -1,7 +1,7 @@
 export { CardRepository } from './cards.ts';
 export { UserRepository } from './users.ts';
 
-import { Database } from '../database/database.ts';
+import { Database } from '@vaaas/fs-kv-db';
 import { CardRepository } from './cards.ts';
 import { UserRepository } from './users.ts';
 

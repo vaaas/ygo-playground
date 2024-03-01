@@ -1,10 +1,13 @@
-export type CardEntry = {
+export interface CardJSON {
+	_type: 'Card';
 	id: number;
 	picture: string;
 	description: string;
 }
 
 export class Card {
+	public static readonly type = 'Card';
+
 	public id: number;
 	public picture: string;
 	public description: string;
@@ -19,15 +22,20 @@ export class Card {
 		this.description = description;
 	}
 
-	toJSON(): CardEntry {
+	serialise(): CardJSON {
 		return {
+			_type: Card.type,
 			id: this.id,
 			picture: this.picture,
 			description: this.description,
 		};
 	}
 
-	static fromJSON(x: CardEntry) {
+	static deserialise(x: CardJSON) {
 		return new Card(x.id, x.picture, x.description);
+	}
+
+	static is(x: unknown): x is Card {
+		return x instanceof Card;
 	}
 }

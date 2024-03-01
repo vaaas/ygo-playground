@@ -1,16 +1,19 @@
 import { Card } from './card.ts';
 import { Deck } from './deck.ts';
 
-export type UserEntry = {
+export interface UserJSON {
+	_type: 'User';
 	id: number;
 	name: string;
 	password: string;
-	cards: Array<Card['id']>;
-	decks: Array<Deck['id']>;
+	cards: Array<number>;
+	decks: Array<number>;
 	purchase_points: number;
 }
 
 export class User {
+	public static readonly type = 'User';
+
 	public id: number;
 	public name: string;
 	public password: string;
@@ -34,8 +37,9 @@ export class User {
 		this.purchase_points = purchase_points;
 	}
 
-	toJSON(): UserEntry {
+	serialise(): UserJSON {
 		return {
+			_type: User.type,
 			id: this.id,
 			name: this.name,
 			password: this.password,
@@ -45,7 +49,7 @@ export class User {
 		};
 	}
 
-	static fromJSON(x: UserEntry): User {
+	static deserialise(x: UserJSON): User {
 		return new User(
 			x.id,
 			x.name,
@@ -54,5 +58,9 @@ export class User {
 			x.decks,
 			x.purchase_points,
 		);
+	}
+
+	static is(x: unknown): x is User {
+		return x instanceof User;
 	}
 }

@@ -1,8 +1,10 @@
+import { Database } from '@vaaas/fs-kv-db';
+import { Serialiser } from '@vaaas/class-serialisation';
 import { DataAccess } from './data-access/index.ts';
 import { AuthService } from './auth/index.ts';
-import { Database } from './database/database.ts';
 import { Controllers } from './controllers/index.ts';
 import { Config } from '../config.ts';
+import * as entities from './entities/index.ts';
 
 export class App {
 	public db: Database;
@@ -11,7 +13,20 @@ export class App {
 	public controllers: Controllers;
 
 	constructor(config: Config) {
-		this.db = new Database(config.db.pathname);
+		const serialiser = Serialiser(
+			entities.BoosterPack,
+			entities.Card,
+			entities.Deck,
+			entities.Game,
+			entities.User,
+		);
+
+		this.db = new Database(
+			config.db.pathname,
+			serialiser.serialise,
+			serialiser.deserialise,
+		);
+
 		this.data_access = new DataAccess(this.db);
 		this.auth = new AuthService(this.data_access.users);
 		this.controllers = new Controllers();
