@@ -30,6 +30,10 @@ export class Router {
 		return this.add_route(path, 'POST', handler);
 	}
 
+	patch(path: string, handler: Handler): this {
+		return this.add_route(path, 'PATCH', handler);
+	}
+
 	private add_route(path: string, verb: Method, handler: Handler): this {
 		const regex = this.path_to_regex(path);
 		let route = this.routes.find(x => x.regex === regex);

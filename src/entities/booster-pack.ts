@@ -11,10 +11,10 @@ export interface BoosterPackJSON {
 export class BoosterPack {
 	public static readonly type = 'BoosterPack';
 
-	public id: number;
-	public name: string;
-	public picture: string;
-	public cards: Array<Card['id']>;
+	public readonly id: number;
+	public readonly name: string;
+	public readonly picture: string;
+	public readonly cards: Array<Card['id']>;
 
 	constructor(
 		id: number,
@@ -36,6 +36,15 @@ export class BoosterPack {
 			picture: this.picture,
 			cards: this.cards,
 		};
+	}
+
+	patch(x: Partial<BoosterPackJSON>): BoosterPack {
+		return new BoosterPack(
+			this.id,
+			x.name ?? this.name,
+			x.picture ?? this.picture,
+			x.cards ?? this.cards,
+		);
 	}
 
 	static deserialise(x: BoosterPackJSON): BoosterPack {

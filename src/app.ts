@@ -29,6 +29,6 @@ export class App {
 
 		this.data_access = new DataAccess(this.db);
 		this.auth = new AuthService(this.data_access.users);
-		this.controllers = new Controllers();
+		this.controllers = new Controllers(this.db, this.data_access);
 	}
 }

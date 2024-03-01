@@ -1,9 +1,9 @@
-import { Form } from '../components/form/form.tsx';
-import { Label } from '../components/form/label.tsx';
-import { FormPicture } from '../components/form/picture.tsx';
-import { FormText } from '../components/form/text.tsx';
-import { Page, PageHeader } from '../components/page.tsx';
-import { Signal } from '../signal/index.ts';
+import { Form } from '../../components/form/form.tsx';
+import { Label } from '../../components/form/label.tsx';
+import { FormPicture } from '../../components/form/picture.tsx';
+import { FormText } from '../../components/form/text.tsx';
+import { Page, PageHeader } from '../../components/page.tsx';
+import { Signal } from '../../signal/index.ts';
 
 export function AddBoosterPack() {
 	function on_submit() {

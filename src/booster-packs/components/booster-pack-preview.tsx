@@ -1,5 +1,5 @@
-import { Text } from '../components/text.tsx';
-import { BoosterPack } from '../entities/booster-pack.ts';
+import { Text } from '../../components/text.tsx';
+import { BoosterPack } from '../../entities/booster-pack.ts';
 
 export function BoosterPackPreview(props: { item: BoosterPack }) {
 	return <article>

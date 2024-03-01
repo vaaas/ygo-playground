@@ -3,7 +3,8 @@ import { HTTPResponse } from './http-response.ts';
 
 export type Method =
 	'GET'
-	| 'POST';
+	| 'POST'
+	| 'PATCH';
 
 export type AcceptableResponse =
 	HTTPResponse

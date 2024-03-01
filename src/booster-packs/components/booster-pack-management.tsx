@@ -1,8 +1,8 @@
-import { Button } from '../components/button.tsx';
-import { EmptyContents } from '../components/empty-contents.tsx';
-import { Page, PageHeader } from '../components/page.tsx';
-import { BoosterPack } from '../entities/booster-pack.ts';
-import { useRouter } from '../solid-router/index.tsx';
+import { Button } from '../../components/button.tsx';
+import { EmptyContents } from '../../components/empty-contents.tsx';
+import { Page, PageHeader } from '../../components/page.tsx';
+import { BoosterPack } from '../../entities/booster-pack.ts';
+import { useRouter } from '../../solid-router/index.tsx';
 import { AddBoosterPack } from './add-booster-pack.tsx';
 import { BoosterPackList } from './booster-pack-list.tsx';
 

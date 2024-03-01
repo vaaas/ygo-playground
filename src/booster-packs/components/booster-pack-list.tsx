@@ -1,5 +1,5 @@
-import { ItemList } from '../components/item-list.tsx';
-import { BoosterPack } from '../entities/booster-pack.ts'
+import { ItemList } from '../../components/item-list.tsx';
+import { BoosterPack } from '../../entities/booster-pack.ts'
 import { BoosterPackPreview } from './booster-pack-preview.tsx';
 
 type Props = {
