@@ -8,14 +8,9 @@ import { Database } from '../database.ts';
 
 export class BoosterPackController {
 	private repo: BoosterPackRepository;
-	private db: Database;
 
-	constructor(
-		repo: BoosterPackRepository,
-		db: Database,
-	) {
+	constructor(repo: BoosterPackRepository) {
 		this.repo = repo;
-		this.db = db;
 	}
 
 	static dependencies() {
@@ -28,7 +23,7 @@ export class BoosterPackController {
 	async create(req: IncomingMessage) {
 		const data = await read_post_data_as_json(req)
 			.then(create_request_validator);
-		const pack = new BoosterPack(this.db.id(), data.name, data.picture, []);
+		const pack = new BoosterPack(this.repo.id(), data.name, data.picture, []);
 		this.repo.store(pack);
 	}
 

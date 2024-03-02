@@ -1,11 +1,35 @@
-export const config = {
-	http: {
-		port: 8000,
-	},
+export class Config {
+	readonly http: HttpConfig;
+	readonly db: DBConfig;
 
-	db: {
-		pathname: 'shared',
-	},
+	constructor(
+		http: HttpConfig,
+		db: DBConfig,
+	) {
+		this.http = http;
+		this.db = db;
+	}
+
+	static dependencies() {
+		return [
+			HttpConfig,
+			DBConfig,
+		]
+	}
 }
 
-export type Config = typeof config;
+export class HttpConfig {
+	readonly port: number;
+
+	constructor() {
+		this.port = 8000;
+	}
+}
+
+export class DBConfig {
+	readonly pathname: string;
+
+	constructor() {
+		this.pathname = 'shared';
+	}
+}

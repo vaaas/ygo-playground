@@ -1,11 +1,12 @@
+import { Collection } from '@vaaas/fs-kv-db';
 import { Database } from '../database.ts';
 import { BoosterPack } from '../entities/index.ts';
 
 export class BoosterPackRepository {
-	private db: Database;
+	private db: Collection;
 
 	constructor(db: Database) {
-		this.db = db;
+		this.db = db.collection('booster-packs');
 	}
 
 	static dependencies() {
@@ -22,5 +23,9 @@ export class BoosterPackRepository {
 
 	get(x: BoosterPack['id']): BoosterPack | undefined {
 		return this.db.read<BoosterPack>(x);
+	}
+
+	id(): number {
+		return this.db.id();
 	}
 }

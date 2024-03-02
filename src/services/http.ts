@@ -1,7 +1,7 @@
 import { IncomingMessage, Server, ServerResponse, createServer } from 'http';
-import { Config, config } from '../../config.ts';
 import { Router } from '../router.ts';
 import { serve } from '../http/serve.ts';
+import { HttpConfig } from '../../config.ts';
 
 export class HTTPService {
 	private router: Router;
@@ -9,10 +9,10 @@ export class HTTPService {
 	private port: number;
 
 	constructor(
-		config: Config,
+		config: HttpConfig,
 		router: Router,
 	) {
-		this.port = config.http.port;
+		this.port = config.port;
 		this.router = router;
 		this.server = createServer(this.on_request.bind(this));
 	}
@@ -32,7 +32,7 @@ export class HTTPService {
 
 	static dependencies() {
 		return [
-			config,
+			HttpConfig,
 			Router,
 		];
 	}

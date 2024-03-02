@@ -1,14 +1,14 @@
 import { Database as BaseDatabase } from '@vaaas/fs-kv-db';
-import { config, Config } from '../config.ts';
 import { Serialiser } from './serialiser.ts';
+import { DBConfig } from '../config.ts';
 
 export class Database extends BaseDatabase {
 	constructor(
-		config: Config,
+		config: DBConfig,
 		serialiser: Serialiser,
 	) {
 		super(
-			config.db.pathname,
+			config.pathname,
 			serialiser.serialise.bind(serialiser),
 			serialiser.deserialise.bind(serialiser),
 		);
@@ -16,7 +16,7 @@ export class Database extends BaseDatabase {
 
 	static dependencies() {
 		return [
-			config,
+			DBConfig,
 			Serialiser,
 		] as const;
 	}

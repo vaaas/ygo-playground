@@ -1,12 +1,13 @@
+import { Collection } from '@vaaas/fs-kv-db';
 import { Database } from '../database.ts';
 import { User } from '../entities/index.ts';
 import { find } from '../util/iter.ts';
 
 export class UserRepository {
-	private db: Database;
+	private db: Collection;
 
 	constructor(db: Database) {
-		this.db = db;
+		this.db = db.collection('users');
 	}
 
 	static dependencies() {
@@ -18,5 +19,9 @@ export class UserRepository {
 			this.db,
 			x => x instanceof User && x.name === name && x.password === password
 		) as any;
+	}
+
+	id(): number {
+		return this.db.id();
 	}
 }

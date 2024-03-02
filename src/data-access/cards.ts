@@ -1,11 +1,12 @@
+import { Collection } from '@vaaas/fs-kv-db';
 import { Database } from '../database.ts';
 import { Card } from '../entities/index.ts';
 
 export class CardRepository {
-	private db: Database;
+	private db: Collection;
 
 	constructor(db: Database) {
-		this.db = db;
+		this.db = db.collection('cards');
 	}
 
 	static dependencies() {
@@ -22,5 +23,9 @@ export class CardRepository {
 
 	get(x: Card['id']): Card | undefined {
 		return this.db.read<Card>(x);
+	}
+
+	id() {
+		return this.db.id();
 	}
 }

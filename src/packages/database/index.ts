@@ -3,23 +3,34 @@ import {
 	readdirSync,
 	unlinkSync,
 	writeFileSync,
+	mkdirSync,
+	accessSync,
+	constants,
 } from 'node:fs';
 
-export class Database {
+export class Collection {
 	private directory: string;
 	private serialise: (x: any) => string;
 	private deserialise: (x: string) => unknown;
 	private max_id: number;
 
 	constructor(
-		directory: Database['directory'],
-		serialise: Database['serialise'],
-		deserialise: Database['deserialise'],
+		directory: Collection['directory'],
+		serialise: Collection['serialise'],
+		deserialise: Collection['deserialise'],
 	) {
 		this.directory = directory;
 		this.serialise = serialise;
 		this.deserialise = deserialise;
+
+		try {
+			accessSync(this.directory, constants.F_OK);
+		} catch (e) {
+			mkdirSync(this.directory);
+		}
+
 		this.max_id = this.ids().reduce((a, b) => Math.max(a, b), 0);
+
 	}
 
 	write(k: number, v: any): void {
@@ -64,5 +75,25 @@ export class Database {
 		}
 
 		return { next };
+	}
+}
+
+export class Database {
+	private directory: string;
+	private serialise: (x: any) => string;
+	private deserialise: (x: string) => unknown;
+
+	constructor(
+		directory: Collection['directory'],
+		serialise: Collection['serialise'],
+		deserialise: Collection['deserialise'],
+	) {
+		this.directory = directory;
+		this.serialise = serialise;
+		this.deserialise = deserialise;
+	}
+
+	collection(name: string): Collection {
+		return new Collection(this.directory + '/' + name, this.serialise, this.deserialise);
 	}
 }
