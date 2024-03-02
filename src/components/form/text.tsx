@@ -1,4 +1,4 @@
-import { style } from '../../css-in-js/index.ts';
+import { style } from '@vaaas/css-in-js/index.ts';
 
 type Props = {
 	value: string;

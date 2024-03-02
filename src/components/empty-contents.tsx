@@ -1,6 +1,6 @@
 import { JSXElement } from 'solid-js';
 import { center, colors, no_select, pad_narrower, rounded } from '../utility-css.ts';
-import { style } from '../css-in-js/index.ts';
+import { style } from '@vaaas/css-in-js/index.ts';
 import { Flex } from './flex.tsx';
 
 const elemStyle = style({

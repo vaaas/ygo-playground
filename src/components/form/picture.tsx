@@ -1,4 +1,4 @@
-import { style } from '../../css-in-js/index.ts';
+import { style } from '@vaaas/css-in-js/index.ts';
 import { readFileAsDataUrl } from '../../dom/files.ts';
 import { hidden, inline_block, invisible_input, rounded_more } from '../../utility-css.ts';
 import { Button } from '../button.tsx';

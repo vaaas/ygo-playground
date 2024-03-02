@@ -1,7 +1,7 @@
 import { render } from 'solid-js/web';
 import { RouterProvider, useRouter } from './solid-router/index.tsx';
 import { BoosterPackManagement } from './booster-packs/components/booster-pack-management.tsx';
-import { style } from './css-in-js/index.ts';
+import { style } from '@vaaas/css-in-js';
 import { colors, full_height } from './utility-css.ts';
 import { TopNavBar } from './top-nav-bar/index.tsx';
 

@@ -1,7 +1,7 @@
 import { JSXElement } from 'solid-js';
 import { Button } from '../button.tsx';
 import { right } from '../../utility-css.ts';
-import { style } from '../../css-in-js/index.ts';
+import { style } from '@vaaas/css-in-js/index.ts';
 import { Flex } from '../flex.tsx';
 
 type Props = {

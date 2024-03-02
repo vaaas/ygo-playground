@@ -1,5 +1,5 @@
 import { JSXElement } from 'solid-js';
-import { style } from '../css-in-js/index.ts'
+import { style } from '@vaaas/css-in-js/index.ts'
 import { colors, not_allowed, pointer, rounded } from '../utility-css.ts'
 import { gap_to_rem } from './types.ts';
 

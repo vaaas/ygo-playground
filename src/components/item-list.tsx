@@ -1,6 +1,6 @@
 import { JSXElement } from 'solid-js';
 import { colors, pad_narrower, rounded } from '../utility-css.ts';
-import { style } from '../css-in-js/index.ts';
+import { style } from '@vaaas/css-in-js/index.ts';
 import { lift_single } from '../util/array.ts';
 import { Flex } from './flex.tsx';
 

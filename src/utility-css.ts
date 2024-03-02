@@ -1,5 +1,5 @@
 import { gap_to_rem } from './components/types.ts';
-import { style } from './css-in-js/index.ts'
+import { style } from '@vaaas/css-in-js/index.ts'
 
 export const colors = {
 	blue1: '#99c1f1',
