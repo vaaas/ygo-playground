@@ -1,5 +1,5 @@
 import { render } from 'solid-js/web';
-import { RouterProvider, useRouter } from './solid-router/index.tsx';
+import { RouterProvider, useRouter } from '@vaaas/solid-router';
 import { BoosterPackManagement } from './booster-packs/components/booster-pack-management.tsx';
 import { style } from '@vaaas/css-in-js';
 import { colors, full_height } from './utility-css.ts';

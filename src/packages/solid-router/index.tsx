@@ -1,5 +1,5 @@
 import { JSXElement, createContext, useContext } from 'solid-js';
-import { Signal } from '../signal/index.ts';
+import { Signal } from '@vaaas/solid-signal';
 
 type Router = ReturnType<typeof Signal<undefined | JSXElement>>;
 

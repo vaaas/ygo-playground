@@ -3,7 +3,7 @@ import { Label } from '../../components/form/label.tsx';
 import { FormPicture } from '../../components/form/picture.tsx';
 import { FormText } from '../../components/form/text.tsx';
 import { Page, PageHeader } from '../../components/page.tsx';
-import { Signal } from '../../signal/index.ts';
+import { Signal } from '@vaaas/solid-signal';
 
 export function AddBoosterPack() {
 	function on_submit() {

@@ -1,0 +1,10 @@
+{
+	"name": "@vaaas/solid-router",
+	"version": "0.0.0",
+	"sideEffects": true,
+	"type": "module",
+	"main": "./index.tsx",
+	"devDependencies": {
+		"solid-js": "^1.8.14"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"name": "@vaaas/solid-signal",
+	"version": "0.0.0",
+	"sideEffects": false,
+	"type": "module",
+	"main": "./index.ts",
+	"devDependencies": {
+		"solid-js": "^1.8.14"
+	}
+}

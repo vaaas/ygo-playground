@@ -1,8 +1,7 @@
 import { createSignal } from 'solid-js';
 
-const NoValue = Symbol();
-
 export function Signal<T>(initial: T) {
+	const NoValue = Symbol();
 	const [value, setValue] = createSignal(initial);
 
 	return function Signal(v: T | typeof NoValue = NoValue): T {
